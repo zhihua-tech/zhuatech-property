@@ -37,4 +37,14 @@ class PropertyApiIntegrationTests {
     @Test void anonymousRequestIsRejected() throws Exception {
         mvc.perform(get("/api/workspace/tasks")).andExpect(status().isUnauthorized());
     }
+
+    @Test void adminCanEvaluateServiceSla() throws Exception {
+        mvc.perform(post("/api/admin/service-sla").with(httpBasic("admin", "admin123"))
+            .contentType(MediaType.APPLICATION_JSON)
+            .content("{\"priority\":\"P1\",\"minutesOpen\":150,\"responseMinutes\":25,\"resolutionTargetMinutes\":120,\"residentVulnerable\":true,\"repeatedIssue\":true}"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.data.consumedRate").value(125.0))
+            .andExpect(jsonPath("$.data.riskScore").value(100))
+            .andExpect(jsonPath("$.data.status").value("BREACHED"));
+    }
 }

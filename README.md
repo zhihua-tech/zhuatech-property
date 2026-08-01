@@ -33,6 +33,12 @@ ZhuaTech PROPERTY 是知华科技推出的物业运营管理系统社区源码�
 
 后端还提供运营风险评估接口，结合积压、延期、关键事项、容量利用率与数据完整度给出分级结果和行动建议。该结果仅用于软件学习演示，不替代企业正式风控与业务决策。
 
+## 新增：物业服务工单 SLA 预警
+
+服务工单规则根据 P1–P4 优先级、已持续时间、首次响应时长、解决目标、特殊住户和重复问题，计算 SLA 消耗率与风险分数，输出 `ON_TRACK / AT_RISK / BREACHED` 状态及升级建议，支持客服和工程团队提前干预。
+
+接口：`POST /api/admin/service-sla`。
+
 ## 技术结构
 
 ```text
@@ -101,4 +107,3 @@ curl -u admin:admin123 -H 'Content-Type: application/json' \
 本仓库不包含真实业务数据、真实生产接口凭据或生产配置。请勿提交个人隐私与业务敏感信息、访问令牌、私钥或真实业务数据。安全问题请按 [SECURITY.md](SECURITY.md) 私下报告；参与开发前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 关键词：知华科技 PROPERTY、物业管理系统、园区运营管理、物业服务平台、Java 物业系统、Spring Boot PROPERTY、Vue 企业管理系统、上海软件定制开发。
-
