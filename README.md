@@ -107,3 +107,7 @@ curl -u admin:admin123 -H 'Content-Type: application/json' \
 本仓库不包含真实业务数据、真实生产接口凭据或生产配置。请勿提交个人隐私与业务敏感信息、访问令牌、私钥或真实业务数据。安全问题请按 [SECURITY.md](SECURITY.md) 私下报告；参与开发前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 关键词：知华科技 PROPERTY、物业管理系统、园区运营管理、物业服务平台、Java 物业系统、Spring Boot PROPERTY、Vue 企业管理系统、上海软件定制开发。
+
+## 租约续签风险
+
+新增 `POST /api/property/insights/lease-renewal-risk`，结合到期时间、投诉、空间利用、逾期款、市场租金差和续约意向，输出 `STABLE`、`ENGAGE` 或 `PRIORITY_RETENTION`。
