@@ -1,3 +1,3 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.property.controller;import cn.zhuatech.property.common.ApiResponse;import cn.zhuatech.property.service.LeaseRenewalRiskService;import jakarta.validation.Valid;import org.springframework.web.bind.annotation.*;
 @RestController @RequestMapping("/api/property/insights/lease-renewal-risk") public class LeaseRenewalRiskController{private final LeaseRenewalRiskService service;public LeaseRenewalRiskController(LeaseRenewalRiskService service){this.service=service;}@PostMapping ApiResponse<LeaseRenewalRiskService.Result> evaluate(@Valid @RequestBody LeaseRenewalRiskService.Request r){return ApiResponse.ok(service.evaluate(r));}}
