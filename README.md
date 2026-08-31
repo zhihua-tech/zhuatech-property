@@ -111,3 +111,7 @@ curl -u admin:admin123 -H 'Content-Type: application/json' \
 ## 租约续签风险
 
 新增 `POST /api/property/insights/lease-renewal-risk`，结合到期时间、投诉、空间利用、逾期款、市场租金差和续约意向，输出 `STABLE`、`ENGAGE` 或 `PRIORITY_RETENTION`。
+
+## 企业级租户入驻治理
+
+新增 `POST /api/enterprise/property/tenant-move-in`，覆盖租约、资金、身份、保险、消防、门禁、公用服务、交付和隐私，返回 `MOVE_IN / REVIEW / BLOCKED`。详见 [租户入驻说明](docs/ENTERPRISE_TENANT_MOVE_IN.md)。
