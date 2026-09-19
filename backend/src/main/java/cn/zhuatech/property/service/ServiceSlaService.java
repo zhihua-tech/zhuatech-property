@@ -10,8 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ServiceSlaService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public SlaResult evaluate(SlaRequest request) {
         double consumedRate = Math.round(request.minutesOpen() * 1000.0 / request.resolutionTargetMinutes()) / 10.0;
         int riskScore = Math.min(60, (int) Math.round(consumedRate * 0.6))
@@ -30,14 +36,23 @@ public class ServiceSlaService {
         return new SlaResult(consumedRate, riskScore, status, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private int responseTarget(String priority) {
         return switch (priority) { case "P1" -> 10; case "P2" -> 30; case "P3" -> 120; default -> 240; };
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record SlaRequest(@NotNull @Pattern(regexp = "P1|P2|P3|P4") String priority,
         @NotNull @Min(0) @Max(1000000) Integer minutesOpen,
         @NotNull @Min(0) @Max(1000000) Integer responseMinutes,
         @NotNull @Positive Integer resolutionTargetMinutes,
         @NotNull Boolean residentVulnerable, @NotNull Boolean repeatedIssue) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record SlaResult(double consumedRate, int riskScore, String status, List<String> actions) {}
 }
